@@ -1,0 +1,157 @@
+<HTML>
+<script>
+  function validate()
+  {
+    var n=document.getElementById("fname");
+    var e=document.getElementById("email");
+    var m=document.getElementById("mobileno");
+    var custid=document.signup.id.value;
+    var password=document.signup.pwd.value;
+    var cpassword=document.signup.cpwd.value;
+    
+    var p=document.getElementById("pwd");
+    var cp=document.getElementById("cpwd");
+
+    var patt_name=/(^[A-Z][a-z]+\s[A-Za-z]+$)/;
+    var patt_mobile=/^\+?91[7-9][0-9]{9}/;
+    var patt_email=/^([A-za-z0-9\.-]+)@([A-za-z0-9-]+).([a-z]{2,3})$/;
+    
+    if(patt_name.test(n.value))
+    {
+      n.style.border="2px solid blue";
+      if(patt_email.test(e.value))
+      {
+        e.style.border="2px solid blue";
+        if(patt_mobile.test(m.value))
+        {
+          m.style.border="2px solid blue";
+          if (password.length>6)
+          {
+            if(cpassword.length<6)
+            {
+              alert("Password confirmation error.");
+              cp.style.border="2px solid red";
+              return false;
+            }
+            else
+            {
+              alert("Registration Confirmed.");
+            }
+          }
+          else
+          {
+            alert("Password must be at least 6 characters long.");
+            p.style.border="2px solid red";
+            return false;
+          }
+        }
+        else
+        {
+          alert("Phone number is not correct.");
+          m.style.border="2px solid red";
+          return false;
+        }
+      }
+      else
+      {
+        alert("Email is not correct.");
+			  e.style.border="2px solid red";
+			  return false;
+      }      
+    }
+    else
+    {
+      alert("Name is not correct.");
+			n.style.border="2px solid red";
+			return false;
+    }
+  }
+</script>
+	<HEAD>
+		<TITLE>SIGN UP</TITLE>
+	<style>
+	button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	opacity: 0.9;
+	}
+
+	.cancelbtn {
+	padding: 14px 20px;
+	background-color: #f44336;
+	}
+	.cancelbtn, .signupbtn {
+	float: center;
+	width: 20%;
+	}
+	</style>
+	</HEAD>
+	<BODY BGCOLOR="LIGHTSTEELBLUE">
+	<form  name="signup" onsubmit="return validate()">
+		<center><h1><U>SIGN UP</U></h1></center>
+		<hr>	
+		<center>
+		<b>NAME</b>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="text" name="fname" id="fname" required>
+		<br>
+		<br>
+		<b>EMAIL</b>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="text" name="email" id="email" required>
+		<br>
+		<br>
+		<b>MOBILE NO.</b>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="text" name="mobileno" id="mobileno" required>
+		<br>
+		<br>
+		</CENTER>
+		<CENTER><B>GENDER</B>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="radio" id="male" name="gender" value="male" required>
+		<label for="male">Male</label>
+		<input type="radio" id="female" name="gender" value="female" required>
+		<label for="female">Female</label>
+		<input type="radio" id="other" name="gender" value="other" required>
+		<label for="other">Other</label></CENTER><BR>
+		<CENTER>
+		<label for="country"><B>COUNTRY</B>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+		<input list="PLACE" name="country" id="country">
+		<datalist id="PLACE">
+			<option value="INDIA">
+			<option value="OTHER">
+		</datalist>
+		<BR>
+		<BR>
+        <B>CUSTOMER ID</B>:&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;  <input type="text"  name="id" pattern="[C][U][S][T][I][D][A-Za-z]+[0-9?]" required>
+		<br>
+		<br>
+		<b>PASSWORD</b>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="password" name="pwd" id="pwd" required>
+		<br>
+		<br>
+		<b>REPEAT PASSWORD</b>:&nbsp; <input type="password" name="cpwd" id="cpwd" required>
+		<br>
+		<br>
+		</CENTER>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<B>AADHAAR CARD:</B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="file" name="aadhar" size="40" required><BR><BR>
+		<CENTER>
+		<input type="checkbox" checked="checked" name="remember"> <b>REMEMBER ME</b>
+
+
+		<p><b>By creating an account you agree to our Terms & Conditions</b></p>
+
+		<button type="button" class="cancelbtn">Cancel</button>
+		<button type="submit" class="signupbtn">Sign Up</button>
+		</center>
+	</form>	
+	</BODY>
+</HTML>	

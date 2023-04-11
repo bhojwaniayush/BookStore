@@ -1,0 +1,51 @@
+<html>
+<head>
+	<title>CURRENCY CALCULATOR</title>
+	<style>
+	input[type="button"]{
+		border-radius:10px;
+		background-color:#4c5a70;
+		color:white;
+		cursor: pointer;
+		width:100%;
+		height:200%;
+		font-size:20px;
+		}
+		input[type="button"]:hover{
+		background-color:red;
+		}
+		
+	</style>
+	<script>
+	function clr(){
+	document.getElementById("display").value="";
+	}
+	function calculate1(){
+	var x=document.getElementById("display1").value;
+	document.getElementById("display2").value=x/72;
+	}
+	function calculate2(){
+	var x=document.getElementById("display1").value;
+	document.getElementById("display3").value=x/105;
+	}
+	</script>
+</head>
+<body BGCOLOR="LIGHTSTEELBLUE">
+	<center>
+	<h1><u>CURRENCY CALCULATOR</u></h1>
+	<table>
+	<tr>
+	<td><input type="button" value="&#8377" onclick="clr()" style="padding-left:20px;padding-right:20px"></td>
+	<td colspan="3"><input type ="text" id="display1" placeholder="value..." ></td>
+	</tr>
+	<tr>
+	<td><input type="button" value="&#36" onclick="calculate1()" style="padding-left:20px;padding-right:20px"></td>
+	<td colspan="3"><input type ="text" id="display2" placeholder="value..." ></td>
+	</tr>
+	<tr>
+	<td><input type="button" value="&#163" onclick="calculate2()" style="padding-left:20px;padding-right:20px"></td>
+	<td colspan="3"><input type ="text" id="display3" placeholder="value..." ></td>
+	</tr>
+	</table>
+</body>
+</html>
